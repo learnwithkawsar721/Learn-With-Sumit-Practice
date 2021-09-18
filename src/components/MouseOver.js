@@ -1,11 +1,12 @@
-import withCounter from "../HOC/withCounter";
-function MouseOver(props) {
-  const { count, incrementCount } = props;
-  return (
-    <div>
-      <h1 onMouseOver={incrementCount}>Hover Count {count} Time </h1>
-    </div>
-  );
-}
+import React from "react";
 
-export default withCounter(MouseOver);
+export default class MouseOver extends React.Component {
+  render() {
+    const { count, increment } = this.props;
+    return (
+      <div>
+        <h1 onMouseOver={increment}>Hover Count {count} time</h1>
+      </div>
+    );
+  }
+}

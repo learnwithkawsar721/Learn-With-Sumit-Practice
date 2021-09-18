@@ -1,11 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Counter extends Component {
+export default class Counter extends React.Component {
+  state = {
+    count: 0,
+  };
+  increment = () => {
+    this.setState((state) => ({
+      count: state.count + 1,
+    }));
+  };
   render() {
-    return (
-      <div>
-        <h1>H</h1>
-      </div>
-    );
+    const { count } = this.state;
+    const { render } = this.props;
+    return render(count, this.increment);
   }
 }
